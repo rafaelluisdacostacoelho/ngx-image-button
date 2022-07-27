@@ -11,6 +11,11 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "paths": {
+      "ngx-image-button": [
+        "dist/ngx-image-button"
+      ]
+    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,

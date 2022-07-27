@@ -3,5 +3,39 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "ngx-image-button": {
+      "projectType": "library",
+      "root": "projects/ngx-image-button",
+      "sourceRoot": "projects/ngx-image-button/src",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-image-button/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-image-button/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-image-button/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-image-button/src/test.ts",
+            "tsConfig": "projects/ngx-image-button/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-image-button/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "4e848d16-ca52-4df9-ad1b-2264e458d116"
   }
 }
