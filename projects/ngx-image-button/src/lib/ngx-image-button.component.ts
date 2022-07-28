@@ -1,20 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'ngx-ngx-image-button',
+  selector: 'button[ngx-image-button]',
+  exportAs: 'ngxImageButton',
   template: `
-    <p>
-      ngx-image-button works!
-    </p>
+  <span class="ngx-button-wrapper">
+      <ng-content></ng-content>
+      <img class="ngx-button-image" src="{{src}}" alt="{{alt}}">
+  </span>
   `,
-  styles: [
-  ]
+  inputs: ['src', 'alt'],
+  styleUrls: ['ngx-image-button.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxImageButtonComponent implements OnInit {
 
-  constructor() { }
+  src: string;
+  alt: string;
+
+  constructor() {
+    this.src = '';
+    this.alt = '';
+  }
 
   ngOnInit(): void {
+    
   }
 
 }
