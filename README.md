@@ -2,25 +2,43 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
-## Development server
+## Development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm run watch` for a build in watch mode. The application will automatically build dist if you change any of the source files.
 
-## Code scaffolding
+### Develop and Preview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Build your project, then navigate to **dist/ngx-image-button** and run `npm link` to generate a global symlink for ngx-image-button.
+
+In your other angular project, add the preserveSymlinks tag in angular.json as in the following example.
+
+```json
+"projects.<project-name>.architect.build.options.preserveSymlinks": true
+```
+
+It is also interesting to add a new path as shown in the following example.
+
+```json
+paths: {
+   "ngx-image-button/*": [
+      "./node_modules/ngx-image-button/*"
+   ],
+}
+```
+
+And yet in that other angular project you must run `npm link ngx-image-button` and `npm run start` to use this lib locally in your project.
+
+After this point, all changes to this lib will be reflected in projects that reference the global symlink.
+
+Sometimes there may be an error in import, so you will need to delete import from ngx-image-button and import again (it looks like some bug in intelisense or angular engine), and then restart the server again with npm run start in the target project .
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build` to build the projects. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Further help
 
