@@ -19,7 +19,7 @@ In your other angular project, add the preserveSymlinks tag in angular.json as i
 It is also interesting to add a new path as shown in the following example.
 
 ```json
-paths: {
+"paths": {
    "ngx-image-button/*": [
       "./node_modules/ngx-image-button/*"
    ],
